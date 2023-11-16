@@ -4,6 +4,8 @@ class ListNode:
         self.val = val
         self.next = next
 
+# list 
+
 class Solution:
     def reverseList(self, head:[ListNode]) -> [ListNode]:
         if not head:
@@ -24,9 +26,18 @@ class Solution:
         
         return head.next
     
-# head = ListNode(1)
-# head.next = ListNode(2)
-# head.next.next = ListNode(3)
-# head.next.next.next = ListNode(4)
+# recursion
 
-# print(Solution().reverseList(head))
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        return self.recursion(head, None)
+        
+    def recursion(self, head, pre):
+        if not head:
+            return pre
+        else:
+            next_node = head.next
+            head.next = pre
+            return self.recursion(next_node, head)
+        
+        

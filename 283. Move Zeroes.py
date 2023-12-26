@@ -13,6 +13,7 @@
 # Input: nums = [0]
 # Output: [0]
 
+# Solution 1
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
         """
@@ -24,3 +25,14 @@ class Solution:
                 nums.append(nums.pop(n))
             else:
                 n += 1
+
+# Solution 2
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        zero_count = nums.count(0)
+        for _ in range(zero_count):
+            nums.remove(0)
+        nums.extend([0] * zero_count)
